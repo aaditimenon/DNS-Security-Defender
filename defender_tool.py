@@ -808,6 +808,7 @@ class DNSSecurityValidator:
             except:
                 pass
         
+        # Clear blocked IPs
         _blocked_ips.clear()
         
         print(f"[+] Cleanup complete - {len(self.blocked_domains)} domains unblocked")
@@ -871,7 +872,8 @@ class DNSSecurityValidator:
         print(f"DNS SECURITY CHECK: {domain}")
         print(f"{'='*60}\n")
         
-          print(f"[LAYER 1] IP Address Verification")
+        # Layer 1: IP verification
+        print(f"[LAYER 1] IP Address Verification")
         print("-" * 60)
         try:
             actual_ip = socket.gethostbyname(domain)
@@ -884,6 +886,7 @@ class DNSSecurityValidator:
                 print("[!!!] CRITICAL: WORMHOLE ATTACK DETECTED!")
                 print(f"[!!!] MALICIOUS IP DETECTED: {actual_ip}")
                 
+                # BLOCK THE MALICIOUS DOMAIN
                 print(f"\n[*] Initiating active domain blocking...")
                 if self.start_reroute_server(domain, malicious_ip=actual_ip):
                     print("[+++] DOMAIN BLOCKED - Malicious traffic intercepted!")
@@ -946,10 +949,14 @@ def main():
     print("\nYou should see the 'MALICIOUS WEBSITE BLOCKED' page")
     print("-" * 70 + "\n")
     
+    # Configuration: You can modify these to test different scenarios
+    # Format: (domain, trusted_ip)
     security_checks = [
         ("www.example.com", "93.184.216.34"),
-      ]
+        # Add more domains to monitor as needed
+    ]
     
+    # Continuous monitoring loop
     try:
         iteration = 0
         while True:
