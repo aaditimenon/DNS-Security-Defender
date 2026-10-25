@@ -1,16 +1,16 @@
 # Multi-Layered-Hybrid-Defense-against-Architectural-Wormhole-Tunnels
 
-### 🛡️ Project Overview
+### Project Overview
 This project demonstrates a **Wormhole Attack** (Architectural Tunneling) and the implementation of a **Multi-Layered Intrusion Prevention System (IPS)**. While traditional defenses like DNSSEC verify data integrity, they often fail to detect path-based redirections. Our **Defender Tool** bridges this gap by using **Heuristic Infrastructure Analysis** to detect and block unauthorized network tunnels.
 
-### 🚀 The Attack: Wormhole Tunneling
+### The Attack: Wormhole Tunneling
 The attack utilizes **Reverse SSH/Proxy Tunneling** to create a secret bridge between a public network and a private listener.
 
 * **Entrance:** A public URL generated via `localtunnel` (`npx localtunnel`).
 * **Mechanism:** Data is encapsulated and "warped" through a third-party relay (Cloudflare/Localtunnel AS), bypassing local firewall inspection.
 * **Exit:** A Python-based backend listener that captures exfiltrated data in a private terminal environment.
 
-### 🛡️ The Defense: Heuristic Intrusion Detection (HIDS)
+### The Defense: Heuristic Intrusion Detection (HIDS)
 The `defender_tool.py` operates as an **Active Mitigation System**, analyzing network traffic across three distinct layers:
 
 #### **Layer 1: Deterministic IP Verification**
@@ -27,7 +27,7 @@ The `defender_tool.py` operates as an **Active Mitigation System**, analyzing ne
   
 ---
 
-### 📊 Detection Output Example
+### Detection Output Example
 ```text
 ============================================================
 DNS SECURITY CHECK: www.example.com
@@ -48,7 +48,7 @@ DNS SECURITY CHECK: www.example.com
 
 ---
 
-### 🛠️ Installation & Usage
+### Installation & Usage
 
 **1. Prerequisites**
 * Python 3.10+
@@ -70,7 +70,7 @@ pip install -r requirements.txt
 
 ---
 
-### 🎓 Key Technical Terms
+### Key Technical Terms
 * **ASN Filtering:** Detecting traffic coming from high-risk proxy/relay networks.
 * **Topology Anomaly:** A deviation in the expected physical path of a network packet.
 * **Blackhole Routing:** A mitigation technique that sends malicious traffic to a "dead-end" address.
