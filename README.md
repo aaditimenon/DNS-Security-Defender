@@ -1,4 +1,4 @@
-# Multi-Layered-Hybrid-Defense-against-Architectural-Wormhole-Tunnels
+# DNS Security Defender
 
 ### Project Overview
 This project demonstrates a **Wormhole Attack** (Architectural Tunneling) and the implementation of a **Multi-Layered Intrusion Prevention System (IPS)**. While traditional defenses like DNSSEC verify data integrity, they often fail to detect path-based redirections. Our **Defender Tool** bridges this gap by using **Heuristic Infrastructure Analysis** to detect and block unauthorized network tunnels.
