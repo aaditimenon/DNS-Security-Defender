@@ -78,5 +78,5 @@ pip install -r requirements.txt
 
 ---
 
-### 📝 Conclusion
+### Conclusion
 This project proves that **Identity (DNSSEC)** is not enough for modern security; **Path Integrity (IP Verification)** is required. By combining these layers, our Defender Tool provides a robust shield against stealthy tunneling attacks.
